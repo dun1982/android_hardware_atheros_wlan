@@ -30,7 +30,12 @@
 #include "scan.h"
 
 #include "driver_cmd_wext.h"
-#include "driver_cmd_common.h"
+#ifdef ANDROID
+#include "android_drv.h"
+#endif /* ANDROID */
+
+#define RSSI_CMD			"RSSI"
+#define LINKSPEED_CMD			"LINKSPEED"
 
 /**
  * wpa_driver_wext_set_scan_timeout - Set scan timeout to report scan completion
